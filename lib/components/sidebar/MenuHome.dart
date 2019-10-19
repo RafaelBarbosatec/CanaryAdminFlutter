@@ -1,5 +1,5 @@
-import 'package:canary_admin/ButtonMenu.dart';
-import 'package:canary_admin/ItemMenu.dart';
+import 'package:canary_admin/components/sidebar/ButtonMenu.dart';
+import 'package:canary_admin/components/sidebar/ItemMenu.dart';
 import 'package:flutter/material.dart';
 
 class MenuHome extends StatefulWidget {
@@ -38,14 +38,15 @@ class _MenuHomeState extends State<MenuHome> {
                 height: double.maxFinite,
                 child: Image.asset(
                   'assets/bg_sidebar.jpg',
-                  fit: BoxFit.fitHeight,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
             Container(
-              color: Colors.white.withAlpha(230),
+              color: Colors.white.withAlpha(235),
               padding: EdgeInsets.all(10.0),
-              child: Column(
+              child: ListView(
+                padding: EdgeInsets.all(0.0),
                 children: <Widget>[
                   _buildHeader(),
                   _buildLine(),
@@ -96,17 +97,19 @@ class _MenuHomeState extends State<MenuHome> {
               "CanaryAdmin",
               style: Theme.of(context).textTheme.title,
             ),
-          )
+          ),
         ],
       ),
     );
   }
 
-  _buildLine() {
+  Widget _buildLine() {
     return Container(
       margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
       height: 1,
       color: Colors.grey.withAlpha(150),
     );
   }
+
+  
 }

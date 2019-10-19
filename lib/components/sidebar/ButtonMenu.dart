@@ -56,7 +56,7 @@ class ButtonMenu extends StatelessWidget {
           ],
         ),
         onPressed: (){
-          if(onPressed != null){
+          if(onPressed != null && !selected){
             onPressed(index);
           }
         },
