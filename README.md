@@ -1,6 +1,7 @@
 # canary_admin
 
 A new Flutter project.
+Based: https://demos.creative-tim.com/material-dashboard-angular2/#/dashboard
 
 ## Getting Started
 
