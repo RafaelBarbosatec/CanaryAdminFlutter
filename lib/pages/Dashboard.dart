@@ -22,8 +22,8 @@ class Dashboard extends StatelessWidget {
     return LayoutBuilder(
       builder: (context,size){
         return Wrap(
-          spacing: 40.0, // gap between adjacent chips
-          runSpacing: 20,
+          spacing: 30.0, // gap between adjacent chips
+          runSpacing: 35.0,
           children: <Widget>[
             CardInfoDashboard(
               color: Colors.orange,
