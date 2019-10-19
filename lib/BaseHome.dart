@@ -29,6 +29,7 @@ class _BaseHomeState extends State<BaseHome> {
         children: <Widget>[
           MenuHome(
             itensMenus: itens,
+            primaryColor: Colors.blue,
             positionSelected: (position){
               // Aqui atualiza para mudar o content
             },

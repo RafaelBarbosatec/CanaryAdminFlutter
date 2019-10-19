@@ -34,7 +34,7 @@ class ButtonMenu extends StatelessWidget {
         highlightElevation: selected ? 5 : 0,
         elevation: selected ? 3 : 0,
         hoverElevation: selected ? 3 : 0,
-        hoverColor: selected ? primaryColor.withAlpha(200) : Colors.transparent,
+        hoverColor: selected ? primaryColor : Colors.grey.withAlpha(30),
         color: selected ? primaryColor : Colors.transparent,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(4.0))),
