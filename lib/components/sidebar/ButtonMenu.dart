@@ -11,6 +11,7 @@ class ButtonMenu extends StatelessWidget {
   final Color primaryColor;
   final FontWeight fontWeight;
   final Function(int) onPressed;
+  final bool smallerMode;
 
   const ButtonMenu(
       {Key key,
@@ -21,7 +22,8 @@ class ButtonMenu extends StatelessWidget {
       this.fontWeight = FontWeight.w400,
       this.text = "Text menu",
       this.icon = Icons.dashboard,
-        this.onPressed, this.index})
+        this.onPressed, this.index,
+        this.smallerMode = false})
       : super(key: key);
 
   @override
@@ -44,15 +46,7 @@ class ButtonMenu extends StatelessWidget {
               icon,
               color: selected ? labelColorSelected : labelColorUnSelected,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-              child: Text(
-                text,
-                style: TextStyle(
-                    color: selected ? labelColorSelected : labelColorUnSelected,
-                    fontWeight: fontWeight),
-              ),
-            )
+            Expanded(child: _buildName(context))
           ],
         ),
         onPressed: (){
@@ -60,6 +54,28 @@ class ButtonMenu extends StatelessWidget {
             onPressed(index);
           }
         },
+      ),
+    );
+  }
+
+  Widget _buildName(BuildContext context) {
+
+    if(smallerMode){
+      return Container(
+        width: 0.0,
+        height: 0.0,
+      );
+    }
+    return Padding(
+      padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+      child: Container(
+        child: Text(
+          text,
+          maxLines: 1,
+          style: TextStyle(
+              color: selected ? labelColorSelected : labelColorUnSelected,
+              fontWeight: fontWeight),
+        ),
       ),
     );
   }

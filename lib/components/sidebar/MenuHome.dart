@@ -20,12 +20,18 @@ class MenuHome extends StatefulWidget {
 
 class _MenuHomeState extends State<MenuHome> {
   int positionSelected = 0;
+  bool smallerMode = false;
+
+  static const double WIDTH_NORMAL = 300;
+  static const double WIDTH_SMALLER = 98;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    smallerMode = MediaQuery.of(context).size.width < 800;
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 300),
       padding: EdgeInsets.only(right: 20.0),
-      width: 300,
+      width: smallerMode ? WIDTH_SMALLER : WIDTH_NORMAL,
       child: Material(
         color: Colors.white,
         elevation: 4.0,
@@ -70,6 +76,7 @@ class _MenuHomeState extends State<MenuHome> {
           index: index,
           text: i.text,
           icon: i.icon,
+          smallerMode: smallerMode,
           primaryColor: widget.primaryColor,
           selected: positionSelected == index,
           onPressed: (index) {
@@ -78,6 +85,7 @@ class _MenuHomeState extends State<MenuHome> {
                 widget.positionSelected(index);
               }
               positionSelected = index;
+              smallerMode = !smallerMode;
             });
           },
         ),
@@ -86,19 +94,22 @@ class _MenuHomeState extends State<MenuHome> {
   }
 
   _buildHeader() {
+
+    if(smallerMode){
+      return Container();
+    }
+
     return Container(
       margin: EdgeInsets.all(10.0),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(left: 10.0),
-            child: Text(
-              "CanaryAdmin",
-              style: Theme.of(context).textTheme.title,
-            ),
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.only(left: 10.0),
+          child: Text(
+            "CanaryAdmin",
+            maxLines: 2,
+            style: Theme.of(context).textTheme.title,
           ),
-        ],
+        ),
       ),
     );
   }
@@ -107,7 +118,7 @@ class _MenuHomeState extends State<MenuHome> {
     return Container(
       margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
       height: 1,
-      color: Colors.grey.withAlpha(150),
+      color: smallerMode? Colors.transparent : Colors.grey.withAlpha(150),
     );
   }
 
