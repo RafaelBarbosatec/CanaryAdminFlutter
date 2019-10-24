@@ -72,9 +72,11 @@ class ButtonMenu extends StatelessWidget {
         child: Text(
           text,
           maxLines: 1,
-          style: TextStyle(
-              color: selected ? labelColorSelected : labelColorUnSelected,
-              fontWeight: fontWeight),
+          style: Theme.of(context).textTheme.body1.merge(
+              TextStyle(
+                  color: selected ? labelColorSelected : labelColorUnSelected,
+                  fontFamily: selected ? 'normal':'Light')
+          ),
         ),
       ),
     );

@@ -77,7 +77,7 @@ class CardInfoDashboard extends StatelessWidget {
           Text(title,style: TextStyle(fontWeight: FontWeight.w400, color: Colors.grey[500]), maxLines: 1,),
           Padding(
             padding: const EdgeInsets.only(top:5.0),
-            child: Text(information, style: TextStyle(fontSize: 22.0),maxLines: 1,),
+            child: Text(information, style: TextStyle(fontSize: 22.0), maxLines: 1,),
           ),
         ],
       ),
