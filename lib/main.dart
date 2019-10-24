@@ -11,6 +11,12 @@ class MyApp extends StatelessWidget {
       title: 'Canary Admin',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: TextTheme(
+            title: TextStyle(fontFamily: 'Bold'),
+            subtitle: TextStyle(fontFamily: 'Normal'),
+            body1: TextStyle(fontFamily: 'Normal'),
+            body2: TextStyle(fontFamily: 'Normal')
+        )
       ),
       home: BaseHome(),
     );

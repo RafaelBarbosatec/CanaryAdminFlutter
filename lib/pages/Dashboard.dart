@@ -8,6 +8,7 @@ class Dashboard extends StatelessWidget {
     return Container(
       width: double.maxFinite,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           _buildHeader()
