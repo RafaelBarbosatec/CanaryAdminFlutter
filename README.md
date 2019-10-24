@@ -2,6 +2,8 @@
 
 Based: https://demos.creative-tim.com/material-dashboard-angular2/#/dashboard
 
+Demo development current: http://rafaelbarbosatec.github.io/canary/
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
