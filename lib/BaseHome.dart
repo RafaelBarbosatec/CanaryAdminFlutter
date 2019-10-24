@@ -34,6 +34,7 @@ class _BaseHomeState extends State<BaseHome> {
       body: Container(
         color: Colors.grey[200],
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             MenuHome(
               itensMenus: itens,
@@ -51,17 +52,17 @@ class _BaseHomeState extends State<BaseHome> {
 
   Widget _buildContent() {
     return Padding(
-      padding: EdgeInsets.only(left: 10.0, top: 20.0,right: 20.0, bottom: 20.0),
-      child: Column(
+      padding: EdgeInsets.only(left: 10.0,right: 20.0),
+      child: ListView(
+        physics: BouncingScrollPhysics(),
+        padding: EdgeInsets.all(0.0),
         children: <Widget>[
           _buildHeader(),
-          Expanded(
-              child: AnimatedOpacity(
-                opacity: opacityContent,
-                duration: Duration(milliseconds: 300),
-                child: contentWidget
-              )
-          )
+          AnimatedOpacity(
+              opacity: opacityContent,
+              duration: Duration(milliseconds: 300),
+              child: contentWidget
+          ),
         ],
       ),
     );
@@ -69,7 +70,7 @@ class _BaseHomeState extends State<BaseHome> {
 
   Widget _buildHeader() {
     return Container(
-      margin: EdgeInsets.only(bottom: 20.0),
+      margin: EdgeInsets.only(bottom: 20.0,top: 20.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -125,4 +126,5 @@ class _BaseHomeState extends State<BaseHome> {
     });
 
   }
+
 }

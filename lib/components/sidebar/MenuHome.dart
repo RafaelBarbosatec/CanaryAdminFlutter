@@ -53,6 +53,7 @@ class _MenuHomeState extends State<MenuHome> {
               padding: EdgeInsets.all(10.0),
               child: ListView(
                 padding: EdgeInsets.all(0.0),
+                physics: BouncingScrollPhysics(),
                 children: <Widget>[
                   _buildHeader(),
                   _buildLine(),
