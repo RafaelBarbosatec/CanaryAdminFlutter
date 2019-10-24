@@ -24,6 +24,7 @@ class _MenuHomeState extends State<MenuHome> {
 
   static const double WIDTH_NORMAL = 300;
   static const double WIDTH_SMALLER = 98;
+  static const double ELEVATION_SIDBAR = 4.0;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class _MenuHomeState extends State<MenuHome> {
       width: smallerMode ? WIDTH_SMALLER : WIDTH_NORMAL,
       child: Material(
         color: Colors.white,
-        elevation: 4.0,
+        elevation: ELEVATION_SIDBAR,
         shadowColor: Colors.black,
         child: Stack(
           children: <Widget>[

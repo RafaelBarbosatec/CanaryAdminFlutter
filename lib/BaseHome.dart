@@ -1,6 +1,7 @@
 import 'package:canary_admin/components/sidebar/ItemMenu.dart';
 import 'package:canary_admin/components/sidebar/MenuHome.dart';
 import 'package:canary_admin/pages/Dashboard.dart';
+import 'package:canary_admin/pages/UserProfile.dart';
 import 'package:flutter/material.dart';
 
 class BaseHome extends StatefulWidget {
@@ -38,7 +39,7 @@ class _BaseHomeState extends State<BaseHome> {
           children: <Widget>[
             MenuHome(
               itensMenus: itens,
-              primaryColor: Colors.blue,
+              primaryColor: Theme.of(context).primaryColor,
               positionSelected: (position){
                 _confContent(position);
               },
@@ -61,7 +62,11 @@ class _BaseHomeState extends State<BaseHome> {
           AnimatedOpacity(
               opacity: opacityContent,
               duration: Duration(milliseconds: 300),
-              child: contentWidget
+              child: AnimatedPadding(
+                padding: EdgeInsets.only(top: opacityContent == 1.0 ? 0.0 : 20.0),
+                  child: contentWidget,
+                  duration: Duration(milliseconds: 300)
+              )
           ),
         ],
       ),
@@ -74,12 +79,16 @@ class _BaseHomeState extends State<BaseHome> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Text(
-              tittleContent,
-            style: TextStyle(
-              fontSize: 18.0,
-              color: Colors.grey[700],
-              fontWeight: FontWeight.w400
+          AnimatedOpacity(
+            opacity: opacityContent,
+            duration: Duration(milliseconds: 300),
+            child: Text(
+                tittleContent,
+              style: TextStyle(
+                fontSize: 18.0,
+                color: Colors.grey[700],
+                fontWeight: FontWeight.w400
+              ),
             ),
           ),
           _buildRighthealder()
@@ -106,7 +115,7 @@ class _BaseHomeState extends State<BaseHome> {
       opacityContent = 0.0;
     });
 
-    Future.delayed(Duration(milliseconds: 200),(){
+    Future.delayed(Duration(milliseconds: 300),(){
       setState(() {
         switch(position){
           case 0 : {
@@ -115,7 +124,7 @@ class _BaseHomeState extends State<BaseHome> {
           } break;
           default : {
             tittleContent = "Empty";
-            contentWidget = Container();
+            contentWidget = UserProfile();
           }
         }
 
