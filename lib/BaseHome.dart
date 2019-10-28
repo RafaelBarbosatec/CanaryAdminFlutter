@@ -33,12 +33,13 @@ class _BaseHomeState extends State<BaseHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.grey[200],
+        color: Theme.of(context).backgroundColor,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             MenuHome(
               itensMenus: itens,
+              textColor: Colors.white,
               primaryColor: Theme.of(context).primaryColor,
               positionSelected: (position){
                 _confContent(position);
@@ -84,11 +85,7 @@ class _BaseHomeState extends State<BaseHome> {
             duration: Duration(milliseconds: 300),
             child: Text(
                 tittleContent,
-              style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.grey[700],
-                fontWeight: FontWeight.w400
-              ),
+              style: Theme.of(context).textTheme.subtitle,
             ),
           ),
           _buildRighthealder()

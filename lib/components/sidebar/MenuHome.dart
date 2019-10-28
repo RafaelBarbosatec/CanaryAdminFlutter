@@ -6,12 +6,14 @@ class MenuHome extends StatefulWidget {
   final List<ItemMenu> itensMenus;
   final Function(int) positionSelected;
   final Color primaryColor;
+  final Color textColor;
 
   const MenuHome(
       {Key key,
         this.itensMenus,
         this.positionSelected,
-        this.primaryColor = Colors.red})
+        this.primaryColor = Colors.red,
+        this.textColor = Colors.white})
       : super(key: key);
 
   @override
@@ -78,6 +80,7 @@ class _MenuHomeState extends State<MenuHome> {
           index: index,
           text: i.text,
           icon: i.icon,
+          textColor: widget.textColor,
           smallerMode: smallerMode,
           primaryColor: widget.primaryColor,
           selected: positionSelected == index,

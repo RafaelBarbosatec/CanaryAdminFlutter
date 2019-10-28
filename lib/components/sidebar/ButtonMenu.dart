@@ -6,8 +6,7 @@ class ButtonMenu extends StatelessWidget {
   final String text;
   final IconData icon;
   final bool selected;
-  final Color labelColorSelected;
-  final Color labelColorUnSelected;
+  final Color textColor;
   final Color primaryColor;
   final FontWeight fontWeight;
   final Function(int) onPressed;
@@ -16,9 +15,8 @@ class ButtonMenu extends StatelessWidget {
   const ButtonMenu(
       {Key key,
       this.selected = false,
-      this.labelColorSelected = Colors.white,
-      this.labelColorUnSelected = Colors.grey,
-      this.primaryColor = Colors.red,
+      this.textColor = Colors.white,
+      this.primaryColor = Colors.blue,
       this.fontWeight = FontWeight.w400,
       this.text = "Text menu",
       this.icon = Icons.dashboard,
@@ -36,7 +34,7 @@ class ButtonMenu extends StatelessWidget {
         highlightElevation: selected ? 5 : 0,
         elevation: selected ? 3 : 0,
         hoverElevation: selected ? 3 : 0,
-        hoverColor: selected ? primaryColor : Colors.grey.withAlpha(30),
+        hoverColor: selected ? primaryColor : Theme.of(context).hoverColor,
         color: selected ? primaryColor : Colors.transparent,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(4.0))),
@@ -44,7 +42,7 @@ class ButtonMenu extends StatelessWidget {
           children: <Widget>[
             Icon(
               icon,
-              color: selected ? labelColorSelected : labelColorUnSelected,
+              color: selected ? textColor : Theme.of(context).unselectedWidgetColor,
             ),
             Expanded(child: _buildName(context))
           ],
@@ -74,7 +72,7 @@ class ButtonMenu extends StatelessWidget {
           maxLines: 1,
           style: Theme.of(context).textTheme.body1.merge(
               TextStyle(
-                  color: selected ? labelColorSelected : labelColorUnSelected,
+                  color: selected ? textColor : Theme.of(context).unselectedWidgetColor,
                   fontFamily: selected ? 'normal':'Light')
           ),
         ),
