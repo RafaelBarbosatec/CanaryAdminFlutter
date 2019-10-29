@@ -29,10 +29,11 @@ class CardContentTitle extends StatelessWidget {
                       .title
                       .merge(TextStyle(color: textColor)))),
           Container(
+            margin: EdgeInsets.only(top: 5.0),
               child: Text(subtitle,
                   style: Theme.of(context)
                       .textTheme
-                      .subtitle
+                      .subhead
                       .merge(TextStyle(color: textColor)))),
         ],
       ),

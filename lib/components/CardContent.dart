@@ -26,42 +26,46 @@ class _CardContentState extends State<CardContent> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Container(
-          margin: EdgeInsets.only(top: Dimens.margin_default),
-          child: Material(
-            borderRadius: BorderRadius.all(Radius.circular(Dimens.radius_default)),
-            elevation: 0.5,
-            child: Container(
-              padding: EdgeInsets.only(
-                  top: paddingTop,
-                  left: Dimens.margin_default,
-                  right: Dimens.margin_default,
-                  bottom: Dimens.margin_default
+    return Container(
+      margin: EdgeInsets.only(bottom: Dimens.margin_default),
+      child: Stack(
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.only(top: Dimens.margin_default),
+            child: Material(
+              borderRadius: BorderRadius.all(Radius.circular(Dimens.radius_default)),
+              elevation: 0.5,
+              child: Container(
+                padding: EdgeInsets.only(
+                    top: paddingTop,
+                    left: Dimens.margin_default,
+                    right: Dimens.margin_default,
+                    bottom: Dimens.margin_default
+                ),
+                width: double.maxFinite,
+                child: widget.content,
               ),
-              width: double.maxFinite,
-              child: widget.content,
-            ),
-          ),
-        ),
-        Container(
-          key: _keyHeader,
-          margin: const EdgeInsets.only(left: 15.0, right: 15),
-          child: Material(
-            elevation: 4,
-            borderRadius: BorderRadius.all(Radius.circular(Dimens.radius_default)),
-            color: widget.color,
-            shadowColor: widget.color,
-            child: Container(
-              padding: EdgeInsets.all(Dimens.margin_default),
-              width: double.maxFinite,
-              child: widget.header,
             ),
           ),
         ),
 
-      ],
+          Container(
+            key: _keyheader,
+            margin: const EdgeInsets.only(left: 15.0, right: 15),
+            child: Material(
+              elevation: 4,
+              borderRadius: BorderRadius.all(Radius.circular(Dimens.radius_default)),
+              color: widget.color,
+              shadowColor: widget.color,
+              child: Container(
+                padding: EdgeInsets.all(Dimens.margin_header),
+                width: double.maxFinite,
+                child: widget.header,
+            ),
+          ),
+
+        ],
+      ),
     );
   }
 
@@ -71,7 +75,5 @@ class _CardContentState extends State<CardContent> {
     setState(() {
       paddingTop = sizeRed.height;
     });
-    print("SIZE of Red: $sizeRed");
-
   }
 }

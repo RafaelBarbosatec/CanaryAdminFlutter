@@ -2,6 +2,7 @@ import 'package:canary_admin/Dimens.dart';
 import 'package:canary_admin/components/sidebar/ItemMenu.dart';
 import 'package:canary_admin/components/sidebar/MenuHome.dart';
 import 'package:canary_admin/pages/Dashboard.dart';
+import 'package:canary_admin/pages/Tipography.dart';
 import 'package:canary_admin/pages/UserProfile.dart';
 import 'package:flutter/material.dart';
 
@@ -83,7 +84,7 @@ class _BaseHomeState extends State<BaseHome> {
             duration: Duration(milliseconds: 300),
             child: Text(
                 tittleContent,
-              style: Theme.of(context).textTheme.subtitle,
+              style: Theme.of(context).textTheme.title,
             ),
           ),
           _buildRighthealder()
@@ -116,6 +117,10 @@ class _BaseHomeState extends State<BaseHome> {
           case 0 : {
             tittleContent = "Dashboard";
             contentWidget = Dashboard();
+          } break;
+          case 3 :{
+            tittleContent = "Tipography";
+            contentWidget = Tipography();
           } break;
           default : {
             tittleContent = "Empty";

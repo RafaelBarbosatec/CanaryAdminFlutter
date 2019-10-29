@@ -37,7 +37,6 @@ class _MenuHomeState extends State<MenuHome> {
       padding: EdgeInsets.only(right: Dimens.margin_default),
       width: smallerMode ? WIDTH_SMALLER : WIDTH_NORMAL,
       child: Material(
-        color: Colors.white,
         elevation: ELEVATION_SIDBAR,
         shadowColor: Colors.black,
         child: Stack(
@@ -53,7 +52,7 @@ class _MenuHomeState extends State<MenuHome> {
               ),
             ),
             Container(
-              color: Colors.white.withAlpha(235),
+              color: Theme.of(context).backgroundColor.withAlpha(235),
               padding: EdgeInsets.all(10.0),
               child: ListView(
                 padding: EdgeInsets.all(0.0),
