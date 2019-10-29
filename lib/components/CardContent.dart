@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 class CardContent extends StatefulWidget {
   final Color color;
-  final Widget top;
+  final Widget header;
   final Widget content;
 
-  const CardContent({Key key, this.color, this.top, this.content}) : super(key: key);
+  const CardContent({Key key, this.color, this.header, this.content}) : super(key: key);
 
   @override
   _CardContentState createState() => _CardContentState();
@@ -56,7 +56,7 @@ class _CardContentState extends State<CardContent> {
             child: Container(
               padding: EdgeInsets.all(Dimens.margin_default),
               width: double.maxFinite,
-              child: widget.top,
+              child: widget.header,
             ),
           ),
         ),
