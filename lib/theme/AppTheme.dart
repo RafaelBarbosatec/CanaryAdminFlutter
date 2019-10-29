@@ -9,6 +9,7 @@ ThemeData appThemeMain = ThemeData(
     splashColor: Colors.blue.withAlpha(50),
     hoverColor: Colors.grey.withAlpha(30),
     textTheme: textThemeMain,
+    brightness: Brightness.light,
     unselectedWidgetColor: Colors.grey[600]
 );
 
