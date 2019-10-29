@@ -21,7 +21,6 @@ class _CardContentTabState extends State<CardContentTab> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     itemSelected = 0;
   }
