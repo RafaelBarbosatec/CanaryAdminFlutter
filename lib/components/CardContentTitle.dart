@@ -38,7 +38,7 @@ class CardContentTitle extends StatelessWidget {
         ],
       ),
       content: content,
-      color: Theme.of(context).accentColor,
+      color: Theme.of(context).primaryColor,
     );
   }
 }
