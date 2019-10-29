@@ -1,3 +1,4 @@
+import 'package:canary_admin/Dimens.dart';
 import 'package:flutter/material.dart';
 
 class ButtonMenu extends StatelessWidget {
@@ -37,7 +38,7 @@ class ButtonMenu extends StatelessWidget {
         hoverColor: selected ? primaryColor : Theme.of(context).hoverColor,
         color: selected ? primaryColor : Colors.transparent,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(4.0))),
+            borderRadius: BorderRadius.all(Radius.circular(Dimens.radius_default))),
         child: Row(
           children: <Widget>[
             Icon(

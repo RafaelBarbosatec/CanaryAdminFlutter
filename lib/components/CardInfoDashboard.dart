@@ -1,3 +1,4 @@
+import 'package:canary_admin/Dimens.dart';
 import 'package:flutter/material.dart';
 
 class CardInfoDashboard extends StatelessWidget {
@@ -20,7 +21,7 @@ class CardInfoDashboard extends StatelessWidget {
           margin: EdgeInsets.only(top: 20.0),
           child: Material(
             elevation: 1,
-            borderRadius: BorderRadius.all(Radius.circular(4.0)),
+            borderRadius: BorderRadius.all(Radius.circular(Dimens.radius_default)),
             child: Container(
                 padding: EdgeInsets.all(10.0),
                 child: _buildContent()
@@ -31,7 +32,7 @@ class CardInfoDashboard extends StatelessWidget {
           margin: const EdgeInsets.only(left: 15.0),
           child: Material(
             elevation: 4,
-            borderRadius: BorderRadius.all(Radius.circular(4.0)),
+            borderRadius: BorderRadius.all(Radius.circular(Dimens.radius_default)),
             color: color,
             shadowColor: color,
             child: Container(

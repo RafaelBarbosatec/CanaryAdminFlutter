@@ -1,4 +1,7 @@
+import 'package:canary_admin/Dimens.dart';
+import 'package:canary_admin/components/CardContent.dart';
 import 'package:canary_admin/components/CardInfoDashboard.dart';
+import 'package:canary_admin/components/ResponsibleRow.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatelessWidget {
@@ -11,7 +14,8 @@ class Dashboard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          _buildHeader()
+          _buildHeader(),
+          _buildChart(context)
         ],
       ),
     );
@@ -57,4 +61,32 @@ class Dashboard extends StatelessWidget {
       ],
     );
   }
+
+  _buildChart(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top:20.0),
+      child: ResponsibleRow(
+        spaceBetween: Dimens.margin_default,
+        children: <Widget>[
+          CardContent(
+            color: Theme.of(context).primaryColor,
+            top: Text("fdsfdsfdsfdsfdsf"),
+            content: Container(
+              height: 200,
+              child: Text("fdsfdsfdsfdsfdsf"),
+            ),
+          ),
+          CardContent(
+            color: Theme.of(context).primaryColor,
+            top: Text("fdsfdsfdsfdsfdsf"),
+            content: Container(
+              height: 200,
+              child: Text("fdsfdsfdsfdsfdsf"),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
 }
