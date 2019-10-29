@@ -24,23 +24,26 @@ class _ResponsibleRowState extends State<ResponsibleRow> with TickerProviderStat
   double opacity = 0.0;
   double initialWidth = 0.0;
 
-  bool columnMode = false;
-
   @override
   Widget build(BuildContext context) {
 
     return LayoutBuilder(
       builder: (context,contrants){
 
-        if(widthPerWidget == 0.0 || (contrants.maxWidth > initialWidth && !columnMode)){
+        if(widthPerWidget == 0.0 || (contrants.maxWidth > initialWidth)){
 
           int size = widget.children.length;
 
           initialWidth = contrants.maxWidth - ((size-1)*widget.spaceBetween);
-          if(widget.maxItensRow == null){
-            widthPerWidget = initialWidth/size;
+
+          if(initialWidth < 400){
+            widthPerWidget = double.maxFinite;
           }else{
-            widthPerWidget = initialWidth/widget.maxItensRow;
+            if(widget.maxItensRow == null){
+              widthPerWidget = initialWidth/size;
+            }else{
+              widthPerWidget = initialWidth/widget.maxItensRow;
+            }
           }
 
           _initItens();
