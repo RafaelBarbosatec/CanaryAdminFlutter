@@ -1,6 +1,6 @@
 import 'package:canary_admin/Dimens.dart';
 import 'package:canary_admin/components/CardContent.dart';
-import 'package:canary_admin/components/CardContentTab.dart';
+import 'package:canary_admin/components/cardContentTab/CardContentTab.dart';
 import 'package:canary_admin/components/CardContentTitle.dart';
 import 'package:canary_admin/components/CardGraph/CardGraph.dart';
 import 'package:canary_admin/components/CardInfoDashboard.dart';
@@ -97,11 +97,15 @@ class Dashboard extends StatelessWidget {
             subtitle: "New emplldksljdlksj ldskfjdslkfjds ",
             content: Text("Testando", style: Theme.of(context).textTheme.body1,),
           ),
-          CardContentTab([
+          CardContentTab(
+              [
             ItemTab("BUGS", Icons.bug_report, Text("BUGS A LOT")),
             ItemTab("WEBSITE", Icons.chevron_left, Text("WEBSITES")),
             ItemTab("SERVER", Icons.cloud, Text("SERVERS"))
-          ], title: "Tasksssssss")
+          ],
+              title: "Tasks:",
+            color: Colors.purple,
+          )
         ],
       ),
     );

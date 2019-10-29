@@ -21,7 +21,8 @@ class CardGraph extends StatelessWidget {
   Widget _buildGraph() {
     return Container(
       height: 150,
-      child: SimpleTimeSeriesChart.withSampleData(),
+      child: Container(),
+//      child: SimpleTimeSeriesChart.withSampleData(),
     );
   }
 

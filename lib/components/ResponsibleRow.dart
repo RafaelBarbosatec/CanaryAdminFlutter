@@ -36,7 +36,7 @@ class _ResponsibleRowState extends State<ResponsibleRow> with TickerProviderStat
 
           initialWidth = contrants.maxWidth - ((size-1)*widget.spaceBetween);
 
-          if(initialWidth < 400){
+          if(initialWidth < 500){
             widthPerWidget = double.maxFinite;
           }else{
             if(widget.maxItensRow == null){
