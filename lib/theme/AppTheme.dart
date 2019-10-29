@@ -14,18 +14,27 @@ ThemeData appThemeMain = ThemeData(
 );
 
 TextTheme textThemeMain = TextTheme(
-  title: TextStyle(fontFamily: 'Bold'),
-  subhead: TextStyle(fontFamily: 'Normal'),
+  title: TextStyle(
+    fontFamily: 'Bold',
+    fontSize: 18.0,
+      color: Colors.grey[700],
+  ),
+  subhead: TextStyle(
+      fontFamily: 'Light',
+      fontSize: 15.0,
+      color: Colors.grey[700],
+      fontWeight: FontWeight.w100
+  ),
   subtitle: TextStyle(
       fontFamily: 'Normal',
-      fontSize: 20.0,
+      fontSize: 15.0,
       color: Colors.grey[700],
-      fontWeight: FontWeight.w400
+      fontWeight: FontWeight.w100
   ),
   headline: TextStyle(fontFamily: 'Normal'),
   overline: TextStyle(fontFamily: 'Normal'),
   body1: TextStyle(fontFamily: 'Normal'),
-  body2: TextStyle(fontFamily: 'Normal'),
+  body2: TextStyle(fontFamily: 'Italic'),
   button: TextStyle(fontFamily: 'Normal'),
   caption: TextStyle(fontFamily: 'Normal'),
   display1: TextStyle(fontFamily: 'Normal'),
