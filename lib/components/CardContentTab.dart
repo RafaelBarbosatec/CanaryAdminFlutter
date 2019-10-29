@@ -1,4 +1,3 @@
-import 'package:canary_admin/theme/AppTheme.dart';
 import 'package:flutter/material.dart';
 
 class CardContentTab extends StatelessWidget {
@@ -14,7 +13,7 @@ class CardContentTab extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[
-        Text(title == null ? "" : title, style: textThemeMain.subtitle),
+        Text(title == null ? "" : title, style: Theme.of(context).textTheme.subtitle),
         Container(
           margin: EdgeInsets.only(left: 15),
           width: 600,
