@@ -1,6 +1,7 @@
 import 'package:canary_admin/Dimens.dart';
 import 'package:canary_admin/components/CardContent.dart';
 import 'package:canary_admin/components/CardContentTitle.dart';
+import 'package:canary_admin/components/CardGraph/CardGraph.dart';
 import 'package:canary_admin/components/CardInfoDashboard.dart';
 import 'package:canary_admin/components/ResponsibleRow.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,8 @@ class Dashboard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           _buildHeader(),
-          _buildChart(context)
+          _buildChart(context),
+          _buildContents(context)
         ],
       ),
     );
@@ -69,19 +71,36 @@ class Dashboard extends StatelessWidget {
       child: ResponsibleRow(
         spaceBetween: Dimens.margin_default,
         children: <Widget>[
+          CardGraph(
+            color: Colors.green,
+          ),
+          CardGraph(
+            color: Colors.orange,
+          ),
+          CardGraph(
+            color: Colors.red,
+          ),
+        ],
+      ),
+    );
+  }
+
+  _buildContents(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top:Dimens.margin_default),
+      child: ResponsibleRow(
+        spaceBetween: Dimens.margin_default,
+        children: <Widget>[
           CardContentTitle(
             title: "Employees Stats",
             subtitle: "New emplldksljdlksj ldskfjdslkfjds ",
             content: Text("Testando", style: Theme.of(context).textTheme.body1,),
           ),
-          CardContent(
-            color: Theme.of(context).primaryColor,
-            header: Text("fdsfdsfdsfdsfdsf"),
-            content: Container(
-              height: 200,
-              child: Text("fdsfdsfdsfdsfdsf"),
-            ),
-          )
+          CardContentTitle(
+            title: "Employees Stats",
+            subtitle: "New emplldksljdlksj ldskfjdslkfjds ",
+            content: Text("Testando", style: Theme.of(context).textTheme.body1,),
+          ),
         ],
       ),
     );
