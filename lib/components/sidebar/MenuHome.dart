@@ -30,7 +30,7 @@ class _MenuHomeState extends State<MenuHome> {
 
   @override
   Widget build(BuildContext context) {
-    //smallerMode = MediaQuery.of(context).size.width < 800;
+    smallerMode = MediaQuery.of(context).size.width < 800;
     return AnimatedContainer(
       duration: Duration(milliseconds: 300),
       padding: EdgeInsets.only(right: 20.0),
