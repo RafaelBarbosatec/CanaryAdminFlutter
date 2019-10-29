@@ -6,7 +6,7 @@ class CardContent extends StatefulWidget {
   final Widget header;
   final Widget content;
 
-  const CardContent({Key key, this.color, this.header, this.content}) : super(key: key);
+  const CardContent({Key key, this.color = Colors.white, this.header, this.content}) : super(key: key);
 
   @override
   _CardContentState createState() => _CardContentState();
@@ -14,7 +14,7 @@ class CardContent extends StatefulWidget {
 
 class _CardContentState extends State<CardContent> {
 
-  GlobalKey _keyheader = GlobalKey();
+  GlobalKey _keyHeader = GlobalKey();
 
   double paddingTop = 0.0;
 
@@ -46,7 +46,7 @@ class _CardContentState extends State<CardContent> {
           ),
         ),
         Container(
-          key: _keyheader,
+          key: _keyHeader,
           margin: const EdgeInsets.only(left: 15.0, right: 15),
           child: Material(
             elevation: 4,
@@ -66,7 +66,7 @@ class _CardContentState extends State<CardContent> {
   }
 
   void _afterLayout(Duration timeStamp) {
-    final RenderBox renderBoxRed = _keyheader.currentContext.findRenderObject();
+    final RenderBox renderBoxRed = _keyHeader.currentContext.findRenderObject();
     final sizeRed = renderBoxRed.size;
     setState(() {
       paddingTop = sizeRed.height;
