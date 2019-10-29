@@ -5,6 +5,7 @@ class CardContentTitle extends StatelessWidget {
   final String title;
   final String subtitle;
   final Color textColor;
+  final Color color;
   final Widget content;
 
   const CardContentTitle(
@@ -12,7 +13,7 @@ class CardContentTitle extends StatelessWidget {
       this.title = "",
       this.subtitle = "",
       this.content,
-      this.textColor = Colors.white})
+      this.textColor = Colors.white, this.color})
       : super(key: key);
 
   @override
@@ -38,7 +39,7 @@ class CardContentTitle extends StatelessWidget {
         ],
       ),
       content: content,
-      color: Theme.of(context).primaryColor,
+      color: color == null ? Theme.of(context).primaryColor: color,
     );
   }
 }

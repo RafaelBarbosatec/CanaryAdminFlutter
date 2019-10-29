@@ -96,6 +96,7 @@ class Dashboard extends StatelessWidget {
             title: "Employees Stats",
             subtitle: "New emplldksljdlksj ldskfjdslkfjds ",
             content: Text("Testando", style: Theme.of(context).textTheme.body1,),
+            color: Colors.orange,
           ),
           CardContentTab(
               [
