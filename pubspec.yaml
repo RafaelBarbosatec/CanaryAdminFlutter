@@ -20,8 +20,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  charts_flutter: 0.8.1
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

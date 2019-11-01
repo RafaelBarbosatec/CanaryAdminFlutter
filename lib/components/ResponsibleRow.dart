@@ -6,11 +6,13 @@ class ResponsibleRow extends StatefulWidget {
   final List<Widget> children;
   final int maxItensRow;
   final double spaceBetween;
+  final double widthToExpanded;
   const ResponsibleRow({
     Key key,
     this.children,
     this.maxItensRow,
     this.spaceBetween = 0.0,
+    this.widthToExpanded = 400.0,
   }) : super(key: key);
 
   @override
@@ -23,6 +25,14 @@ class _ResponsibleRowState extends State<ResponsibleRow> with TickerProviderStat
   List<Widget> rows = List();
   double opacity = 0.0;
   double initialWidth = 0.0;
+  bool expandedMode = false;
+  int sizeWidgets = 0;
+
+  @override
+  void initState() {
+    sizeWidgets = widget.children.length;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,23 +40,26 @@ class _ResponsibleRowState extends State<ResponsibleRow> with TickerProviderStat
     return LayoutBuilder(
       builder: (context,contrants){
 
-        if(widthPerWidget == 0.0 || (contrants.maxWidth > initialWidth)){
+        var currentWidth = contrants.maxWidth - ((sizeWidgets-1)*widget.spaceBetween);
 
-          int size = widget.children.length;
+        if(widthPerWidget == 0.0 || (currentWidth > initialWidth)){
 
-          initialWidth = contrants.maxWidth - ((size-1)*widget.spaceBetween);
+          if(widthPerWidget == 0.0 || (currentWidth > initialWidth))
+            initialWidth = contrants.maxWidth - ((sizeWidgets-1)*widget.spaceBetween);
 
-          if(initialWidth < 500){
+
+          if(contrants.maxWidth < widget.widthToExpanded){
             widthPerWidget = double.maxFinite;
           }else{
             if(widget.maxItensRow == null){
-              widthPerWidget = initialWidth/size;
+              widthPerWidget = initialWidth/sizeWidgets;
             }else{
               widthPerWidget = initialWidth/widget.maxItensRow;
             }
           }
 
           _initItens();
+
         }
 
         return AnimatedOpacity(

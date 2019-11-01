@@ -26,9 +26,8 @@ class Dashboard extends StatelessWidget {
   }
 
   _buildHeader() {
-    return Wrap(
-      spacing: 30.0, // gap between adjacent chips
-      runSpacing: 35.0,
+    return ResponsibleRow(
+      spaceBetween: Dimens.margin_default,
       children: <Widget>[
         CardInfoDashboard(
           color: Colors.orange,
@@ -73,12 +72,21 @@ class Dashboard extends StatelessWidget {
         spaceBetween: Dimens.margin_default,
         children: <Widget>[
           CardGraph(
+            title: "Daily Sales",
+            subTitle: "55% increase in today sales.",
+            bottomText: "updated 4 minutes ago",
             color: Colors.green,
           ),
           CardGraph(
+            title: "Email Subscriptions",
+            subTitle: "Last Campaign Performance",
+            bottomText: "campaign sent 2 days ago",
             color: Colors.orange,
           ),
           CardGraph(
+            title: "Completed Tasks",
+            subTitle: "Last Campaign Performance",
+            bottomText: "campaign sent 2 days ago",
             color: Colors.red,
           ),
         ],
@@ -95,14 +103,14 @@ class Dashboard extends StatelessWidget {
           CardContentTitle(
             title: "Employees Stats",
             subtitle: "New emplldksljdlksj ldskfjdslkfjds ",
-            content: Text("Testando", style: Theme.of(context).textTheme.body1,),
+            content: Container( height: 150.0,),
             color: Colors.orange,
           ),
           CardContentTab(
               [
-            ItemTab("BUGS", Icons.bug_report, Text("BUGS A LOT")),
-            ItemTab("WEBSITE", Icons.chevron_left, Text("WEBSITES")),
-            ItemTab("SERVER", Icons.cloud, Text("SERVERS"))
+            ItemTab("BUGS", Icons.bug_report, Container( height: 150.0, child: Text("BUGS A LOT"))),
+            ItemTab("WEBSITE", Icons.chevron_left, Container( height: 150.0, child: Text("WEBSITES"))),
+            ItemTab("SERVER", Icons.cloud, Container(height: 150.0, child: Text("SERVERS")))
           ],
               title: "Tasks:",
             color: Colors.purple,
