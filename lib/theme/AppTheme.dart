@@ -6,7 +6,6 @@ ThemeData appThemeMain = ThemeData(
     primarySwatch: Colors.blue,
     accentColor: Colors.orange,
     backgroundColor: Colors.grey[200],
-    splashColor: Colors.blue.withAlpha(50),
     hoverColor: Colors.grey.withAlpha(30),
     textTheme: textThemeMain,
     brightness: Brightness.light,
