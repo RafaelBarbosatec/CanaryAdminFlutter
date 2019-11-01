@@ -1,7 +1,8 @@
 import 'package:canary_admin/Dimens.dart';
 import 'package:canary_admin/components/CardContent.dart';
-import 'package:canary_admin/components/CardContentTab.dart';
+import 'package:canary_admin/components/cardContentTab/CardContentTab.dart';
 import 'package:canary_admin/components/CardContentTitle.dart';
+import 'package:canary_admin/components/CardGraph/CardGraph.dart';
 import 'package:canary_admin/components/CardInfoDashboard.dart';
 import 'package:canary_admin/components/ResponsibleRow.dart';
 import 'package:canary_admin/components/cardContentTab/ItemTab.dart';
@@ -15,15 +16,18 @@ class Dashboard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
-        children: <Widget>[_buildHeader(), _buildChart(context)],
+        children: <Widget>[
+          _buildHeader(),
+          _buildChart(context),
+          _buildContents(context)
+        ],
       ),
     );
   }
 
   _buildHeader() {
-    return Wrap(
-      spacing: 30.0, // gap between adjacent chips
-      runSpacing: 35.0,
+    return ResponsibleRow(
+      spaceBetween: Dimens.margin_default,
       children: <Widget>[
         CardInfoDashboard(
           color: Colors.orange,
@@ -67,16 +71,50 @@ class Dashboard extends StatelessWidget {
       child: ResponsibleRow(
         spaceBetween: Dimens.margin_default,
         children: <Widget>[
+          CardGraph(
+            title: "Daily Sales",
+            subTitle: "55% increase in today sales.",
+            bottomText: "updated 4 minutes ago",
+            color: Colors.green,
+          ),
+          CardGraph(
+            title: "Email Subscriptions",
+            subTitle: "Last Campaign Performance",
+            bottomText: "campaign sent 2 days ago",
+            color: Colors.orange,
+          ),
+          CardGraph(
+            title: "Completed Tasks",
+            subTitle: "Last Campaign Performance",
+            bottomText: "campaign sent 2 days ago",
+            color: Colors.red,
+          ),
+        ],
+      ),
+    );
+  }
+
+  _buildContents(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top:Dimens.margin_default),
+      child: ResponsibleRow(
+        spaceBetween: Dimens.margin_default,
+        children: <Widget>[
           CardContentTitle(
             title: "Employees Stats",
             subtitle: "New emplldksljdlksj ldskfjdslkfjds ",
-            content: Text("Testando", style: Theme.of(context).textTheme.body1,),
+            content: Container( height: 150.0,),
+            color: Colors.orange,
           ),
-          CardContentTab([
-            ItemTab("BUGS", Icons.bug_report, Text("BUGS A LOT")),
-            ItemTab("WEBSITE", Icons.chevron_left, Text("WEBSITES")),
-            ItemTab("SERVER", Icons.cloud, Text("SERVERS"))
-          ], title: "Tasksssssss")
+          CardContentTab(
+              [
+            ItemTab("BUGS", Icons.bug_report, Container( height: 150.0, child: Text("BUGS A LOT"))),
+            ItemTab("WEBSITE", Icons.chevron_left, Container( height: 150.0, child: Text("WEBSITES"))),
+            ItemTab("SERVER", Icons.cloud, Container(height: 150.0, child: Text("SERVERS")))
+          ],
+              title: "Tasks:",
+            color: Colors.purple,
+          )
         ],
       ),
     );

@@ -17,7 +17,6 @@ class CardInfoDashboard extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Container(
-          constraints: BoxConstraints(maxWidth: 230),
           margin: EdgeInsets.only(top: 20.0),
           child: Material(
             elevation: 1,
@@ -62,7 +61,6 @@ class CardInfoDashboard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(top: 15.0),
       height: 1,
-      width: 250,
       color: Colors.grey.withAlpha(80),
     );
   }
@@ -92,9 +90,11 @@ class CardInfoDashboard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Icon(iconBottomInformation, color: Colors.grey[500], size: 14,),
-          Padding(
-            padding: const EdgeInsets.only(left: 5.0),
-            child: Text(bottomInformation, style: TextStyle(color: Colors.grey[500], fontSize: 12),),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 5.0),
+              child: Text(bottomInformation, style: TextStyle(color: Colors.grey[500], fontSize: 12), maxLines: 1,),
+            ),
           )
         ],
       ),
