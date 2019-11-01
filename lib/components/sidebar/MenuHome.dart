@@ -1,3 +1,4 @@
+import 'package:canary_admin/Dimens.dart';
 import 'package:canary_admin/components/sidebar/ButtonMenu.dart';
 import 'package:canary_admin/components/sidebar/ItemMenu.dart';
 import 'package:flutter/material.dart';
@@ -33,10 +34,9 @@ class _MenuHomeState extends State<MenuHome> {
     smallerMode = MediaQuery.of(context).size.width < 800;
     return AnimatedContainer(
       duration: Duration(milliseconds: 300),
-      padding: EdgeInsets.only(right: 20.0),
+      padding: EdgeInsets.only(right: Dimens.margin_default),
       width: smallerMode ? WIDTH_SMALLER : WIDTH_NORMAL,
       child: Material(
-        color: Colors.white,
         elevation: ELEVATION_SIDBAR,
         shadowColor: Colors.black,
         child: Stack(
@@ -52,7 +52,7 @@ class _MenuHomeState extends State<MenuHome> {
               ),
             ),
             Container(
-              color: Colors.white.withAlpha(235),
+              color: Theme.of(context).backgroundColor.withAlpha(235),
               padding: EdgeInsets.all(10.0),
               child: ListView(
                 padding: EdgeInsets.all(0.0),

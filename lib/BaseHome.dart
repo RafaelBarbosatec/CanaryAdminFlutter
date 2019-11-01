@@ -1,6 +1,8 @@
+import 'package:canary_admin/Dimens.dart';
 import 'package:canary_admin/components/sidebar/ItemMenu.dart';
 import 'package:canary_admin/components/sidebar/MenuHome.dart';
 import 'package:canary_admin/pages/Dashboard.dart';
+import 'package:canary_admin/pages/Tipography.dart';
 import 'package:canary_admin/pages/UserProfile.dart';
 import 'package:flutter/material.dart';
 
@@ -53,24 +55,21 @@ class _BaseHomeState extends State<BaseHome> {
   }
 
   Widget _buildContent() {
-    return Padding(
-      padding: EdgeInsets.only(left: 10.0,right: 20.0),
-      child: ListView(
-        physics: BouncingScrollPhysics(),
-        padding: EdgeInsets.all(0.0),
-        children: <Widget>[
-          _buildHeader(),
-          AnimatedOpacity(
-              opacity: opacityContent,
-              duration: Duration(milliseconds: 300),
-              child: AnimatedPadding(
+    return ListView(
+      physics: BouncingScrollPhysics(),
+      padding: EdgeInsets.only(right: Dimens.margin_default),
+      children: <Widget>[
+        _buildHeader(),
+        AnimatedOpacity(
+            opacity: opacityContent,
+            duration: Duration(milliseconds: 300),
+            child: AnimatedPadding(
                 padding: EdgeInsets.only(top: opacityContent == 1.0 ? 0.0 : 20.0),
-                  child: contentWidget,
-                  duration: Duration(milliseconds: 300)
-              )
-          ),
-        ],
-      ),
+                child: contentWidget,
+                duration: Duration(milliseconds: 300)
+            )
+        ),
+      ],
     );
   }
 
@@ -85,7 +84,7 @@ class _BaseHomeState extends State<BaseHome> {
             duration: Duration(milliseconds: 300),
             child: Text(
                 tittleContent,
-              style: Theme.of(context).textTheme.subtitle,
+              style: Theme.of(context).textTheme.title,
             ),
           ),
           _buildRighthealder()
@@ -118,6 +117,10 @@ class _BaseHomeState extends State<BaseHome> {
           case 0 : {
             tittleContent = "Dashboard";
             contentWidget = Dashboard();
+          } break;
+          case 3 :{
+            tittleContent = "Tipography";
+            contentWidget = Tipography();
           } break;
           default : {
             tittleContent = "Empty";
