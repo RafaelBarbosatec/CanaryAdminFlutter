@@ -42,10 +42,25 @@ class _ResponsibleRowState extends State<ResponsibleRow> with TickerProviderStat
 
         var currentWidth = contrants.maxWidth - ((sizeWidgets)*widget.spaceBetween);
 
-        if(widthPerWidget == 0.0 || (currentWidth > initialWidth))
-          initialWidth = contrants.maxWidth - ((sizeWidgets)*widget.spaceBetween);
+        if(widthPerWidget == 0.0 || (currentWidth > initialWidth)) {
+          initialWidth = contrants.maxWidth - ((sizeWidgets) * widget.spaceBetween);
 
-        if(contrants.maxWidth < widget.widthToExpanded){
+          if(contrants.maxWidth <= widget.widthToExpanded){
+            widthPerWidget = double.maxFinite;
+            expandedMode = true;
+            _initItens();
+          }else {
+            expandedMode = false;
+            if(widget.maxItensRow == null){
+              widthPerWidget = initialWidth/sizeWidgets;
+            }else{
+              widthPerWidget = initialWidth/widget.maxItensRow;
+            }
+            _initItens();
+          }
+        }
+
+        if(contrants.maxWidth <= widget.widthToExpanded){
           widthPerWidget = double.maxFinite;
           if(!expandedMode) {
             expandedMode = true;
