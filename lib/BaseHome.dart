@@ -75,7 +75,7 @@ class _BaseHomeState extends State<BaseHome> {
 
   Widget _buildHeader() {
     return Container(
-      margin: EdgeInsets.only(bottom: 20.0,top: 20.0),
+      margin: EdgeInsets.only(bottom: 20.0,top: 20.0,left: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

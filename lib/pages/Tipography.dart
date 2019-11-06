@@ -11,10 +11,13 @@ class Tipography extends StatefulWidget {
 class _TipographyState extends State<Tipography> {
   @override
   Widget build(BuildContext context) {
-    return CardContentTitle(
-      title: "Material Dashboard Heading",
-      subtitle: "Created using Roboto Font Family",
-      content: _BuildContent(context),
+    return Container(
+      margin: EdgeInsets.only(left: 10.0),
+      child: CardContentTitle(
+        title: "Material Dashboard Heading",
+        subtitle: "Created using Roboto Font Family",
+        content: _BuildContent(context),
+      ),
     );
   }
 

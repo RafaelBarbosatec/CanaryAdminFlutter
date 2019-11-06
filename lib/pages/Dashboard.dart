@@ -13,6 +13,7 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.maxFinite,
+      margin: EdgeInsets.only(left: 10.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,

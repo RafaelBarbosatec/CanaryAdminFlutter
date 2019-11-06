@@ -25,7 +25,7 @@ class _ResponsibleRowState extends State<ResponsibleRow> with TickerProviderStat
   List<Widget> rows = List();
   double opacity = 0.0;
   double initialWidth = 0.0;
-  bool expandedMode = false;
+  bool expandedMode = true;
   int sizeWidgets = 0;
 
   @override
@@ -40,25 +40,29 @@ class _ResponsibleRowState extends State<ResponsibleRow> with TickerProviderStat
     return LayoutBuilder(
       builder: (context,contrants){
 
-        var currentWidth = contrants.maxWidth - ((sizeWidgets-1)*widget.spaceBetween);
+        var currentWidth = contrants.maxWidth - ((sizeWidgets)*widget.spaceBetween);
 
-        if(widthPerWidget == 0.0 || (currentWidth > initialWidth)){
+        if(widthPerWidget == 0.0 || (currentWidth > initialWidth))
+          initialWidth = contrants.maxWidth - ((sizeWidgets)*widget.spaceBetween);
 
-          if(widthPerWidget == 0.0 || (currentWidth > initialWidth))
-            initialWidth = contrants.maxWidth - ((sizeWidgets-1)*widget.spaceBetween);
+        if(contrants.maxWidth < widget.widthToExpanded){
+          widthPerWidget = double.maxFinite;
+          if(!expandedMode) {
+            expandedMode = true;
+            _initItens();
+          }
+        }else{
 
-
-          if(contrants.maxWidth < widget.widthToExpanded){
-            widthPerWidget = double.maxFinite;
+          if(widget.maxItensRow == null){
+            widthPerWidget = initialWidth/sizeWidgets;
           }else{
-            if(widget.maxItensRow == null){
-              widthPerWidget = initialWidth/sizeWidgets;
-            }else{
-              widthPerWidget = initialWidth/widget.maxItensRow;
-            }
+            widthPerWidget = initialWidth/widget.maxItensRow;
           }
 
-          _initItens();
+          if (expandedMode){
+            expandedMode = false;
+            _initItens();
+          }
 
         }
 
