@@ -1,8 +1,7 @@
 import 'package:canary_admin/Dimens.dart';
-import 'package:canary_admin/components/CardContent.dart';
 import 'package:canary_admin/components/cardContentTab/CardContentTab.dart';
+import 'package:canary_admin/components/cardGraph/CardGraph.dart';
 import 'package:canary_admin/components/CardContentTitle.dart';
-import 'package:canary_admin/components/CardGraph/CardGraph.dart';
 import 'package:canary_admin/components/CardInfoDashboard.dart';
 import 'package:canary_admin/components/ResponsibleRow.dart';
 import 'package:canary_admin/components/cardContentTab/ItemTab.dart';

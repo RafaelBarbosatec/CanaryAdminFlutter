@@ -20,21 +20,23 @@ class _NotificationsState extends State<Notifications> {
 
   Widget _buildContent() {
     return Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         Column(
           children: <Widget>[
             Text("Notification Style"),
-            NotificationWidget("This is a plain notification",
-                color: Theme.of(context).primaryColor),
+//            NotificationWidget("This is a plain notification",
+//                color: Theme.of(context).primaryColor),
           ],
         ),
         Column(
           children: <Widget>[
             Text("Notification States"),
-            NotificationWidget(
-                "INFO - This is a regular notification made with \".alert-info\"",
-                color: Theme.of(context).primaryColor,
-                hasCloseOption: true),
+//            NotificationWidget(
+//                "INFO - This is a regular notification made with \".alert-info\"",
+//                color: Theme.of(context).primaryColor,
+//                hasCloseOption: true),
           ],
         )
       ],

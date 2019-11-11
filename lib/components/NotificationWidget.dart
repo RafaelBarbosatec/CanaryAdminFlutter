@@ -20,7 +20,7 @@ class NotificationWidget extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Row(
           children: <Widget>[
-            Icon(icon != null ? icon : ""),
+            Icon(icon != null ? icon : null),
             Container(
                 margin: EdgeInsets.only(left: 16.0),
                 child: Text(description,

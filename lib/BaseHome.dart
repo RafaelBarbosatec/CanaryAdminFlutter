@@ -123,7 +123,7 @@ class _BaseHomeState extends State<BaseHome> {
             titleContent = "Typography";
             contentWidget = TypographyCanary();
           } break;
-          case 7 :{
+          case 6 :{
             titleContent = "Notifications";
             contentWidget = Notifications();
           } break;
