@@ -3,22 +3,22 @@ import 'package:canary_admin/Dimens.dart';
 import 'package:canary_admin/components/CardContentTitle.dart';
 import 'package:flutter/material.dart';
 
-class Tipography extends StatefulWidget {
+class TypographyCanary extends StatefulWidget {
   @override
-  _TipographyState createState() => _TipographyState();
+  _TypographyCanaryState createState() => _TypographyCanaryState();
 }
 
-class _TipographyState extends State<Tipography> {
+class _TypographyCanaryState extends State<TypographyCanary> {
   @override
   Widget build(BuildContext context) {
     return CardContentTitle(
       title: "Material Dashboard Heading",
       subtitle: "Created using Roboto Font Family",
-      content: _BuildContent(context),
+      content: _buildContent(context),
     );
   }
 
-  Widget _BuildContent(BuildContext context) {
+  Widget _buildContent(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -31,13 +31,13 @@ class _TipographyState extends State<Tipography> {
         ),
         Padding(
           padding: EdgeInsets.only(top: Dimens.margin_default),
-          child: _BuildTypes(context),
+          child: _buildTypes(context),
         )
       ],
     );
   }
 
-  _BuildTypes(BuildContext context) {
+  _buildTypes(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
