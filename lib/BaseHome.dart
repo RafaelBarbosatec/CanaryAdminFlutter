@@ -56,7 +56,6 @@ class _BaseHomeState extends State<BaseHome> {
 
   Widget _buildContent() {
     return ListView(
-      physics: BouncingScrollPhysics(),
       padding: EdgeInsets.only(right: Dimens.margin_default),
       children: <Widget>[
         _buildHeader(),

@@ -43,16 +43,19 @@ class _MenuHomeState extends State<MenuHome> {
           children: <Widget>[
             Center(
               child: Container(
+                color: Theme.of(context).backgroundColor,
                 width: double.maxFinite,
                 height: double.maxFinite,
-                child: Image.asset(
-                  'assets/bg_sidebar.jpg',
-                  fit: BoxFit.cover,
+                child: Opacity(
+                  opacity: 0.2,
+                  child: Image.asset(
+                    'assets/bg_sidebar.jpg',
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
             Container(
-              color: Theme.of(context).backgroundColor.withAlpha(235),
               padding: EdgeInsets.all(10.0),
               child: ListView(
                 padding: EdgeInsets.all(0.0),
