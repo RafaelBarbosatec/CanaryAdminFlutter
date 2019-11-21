@@ -54,7 +54,7 @@ class _TipographyState extends State<Tipography> {
         _buildExample("Overline","The Life of Material Dashboard",Theme.of(context).textTheme.overline),
         _buildExample("Display1","The Life of Material Dashboard",Theme.of(context).textTheme.display1),
         _buildExample("Display2","The Life of Material Dashboard",Theme.of(context).textTheme.display2),
-       // _buildExample("Display3","The Life of Material Dashboard",Theme.of(context).textTheme.display3),
+        _buildExample("Display3","The Life of Material Dashboard",Theme.of(context).textTheme.display3),
        // _buildExample("Display4","The Life of Material Dashboard",Theme.of(context).textTheme.display4),
       ],
     );
