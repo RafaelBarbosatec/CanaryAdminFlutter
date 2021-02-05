@@ -1,8 +1,7 @@
-import 'package:canary_admin/Dimens.dart';
+import 'package:canary_admin/shared/Dimens.dart';
 import 'package:flutter/material.dart';
 
-class ButtonMenu extends StatelessWidget {
-
+class CAButtonMenu extends StatelessWidget {
   final int index;
   final String text;
   final IconData icon;
@@ -13,7 +12,7 @@ class ButtonMenu extends StatelessWidget {
   final Function(int) onPressed;
   final bool smallerMode;
 
-  const ButtonMenu(
+  const CAButtonMenu(
       {Key key,
       this.selected = false,
       this.textColor = Colors.white,
@@ -21,8 +20,9 @@ class ButtonMenu extends StatelessWidget {
       this.fontWeight = FontWeight.w400,
       this.text = "Text menu",
       this.icon = Icons.dashboard,
-        this.onPressed, this.index,
-        this.smallerMode = false})
+      this.onPressed,
+      this.index,
+      this.smallerMode = false})
       : super(key: key);
 
   @override
@@ -38,18 +38,21 @@ class ButtonMenu extends StatelessWidget {
         hoverColor: selected ? primaryColor : Theme.of(context).hoverColor,
         color: selected ? primaryColor : Colors.transparent,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(Dimens.radius_default))),
+          borderRadius: BorderRadius.all(Radius.circular(Dimens.radius_default)),
+        ),
         child: Row(
           children: <Widget>[
+            if (smallerMode) Spacer(),
             Icon(
               icon,
               color: selected ? textColor : Theme.of(context).unselectedWidgetColor,
             ),
-            Expanded(child: _buildName(context))
+            if (smallerMode) Spacer(),
+            if (!smallerMode) Expanded(child: _buildName(context))
           ],
         ),
-        onPressed: (){
-          if(onPressed != null && !selected){
+        onPressed: () {
+          if (onPressed != null && !selected) {
             onPressed(index);
           }
         },
@@ -58,24 +61,18 @@ class ButtonMenu extends StatelessWidget {
   }
 
   Widget _buildName(BuildContext context) {
-
-    if(smallerMode){
-      return Container(
-        width: 0.0,
-        height: 0.0,
-      );
-    }
     return Padding(
       padding: const EdgeInsets.only(left: 10.0, right: 10.0),
       child: Container(
         child: Text(
           text,
           maxLines: 1,
-          style: Theme.of(context).textTheme.body1.merge(
-              TextStyle(
+          style: Theme.of(context).textTheme.bodyText2.merge(
+                TextStyle(
                   color: selected ? textColor : Theme.of(context).unselectedWidgetColor,
-                  fontFamily: selected ? 'normal':'Light')
-          ),
+                  fontFamily: selected ? 'normal' : 'Light',
+                ),
+              ),
         ),
       ),
     );

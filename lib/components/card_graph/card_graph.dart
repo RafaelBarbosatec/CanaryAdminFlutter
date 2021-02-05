@@ -1,28 +1,20 @@
-
-import 'package:canary_admin/Dimens.dart';
-import 'package:canary_admin/components/CardContent.dart';
+import 'package:canary_admin/components/card_content.dart';
+import 'package:canary_admin/shared/Dimens.dart';
 import 'package:flutter/material.dart';
 
-class CardGraph extends StatelessWidget {
-
+class CACardGraph extends StatelessWidget {
   final Color color;
   final Widget graphWidget;
   final String title;
   final String subTitle;
   final String bottomText;
 
-  const CardGraph({
-    Key key,
-    this.color = Colors.red,
-    this.graphWidget,
-    this.title,
-    this.subTitle,
-    this.bottomText
-  }) : super(key: key);
+  const CACardGraph({Key key, this.color = Colors.red, this.graphWidget, this.title, this.subTitle, this.bottomText})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return CardContent(
+    return CACardContent(
       color: color,
       header: _buildGraph(),
       content: _buildContent(context),
@@ -43,13 +35,13 @@ class CardGraph extends StatelessWidget {
         children: <Widget>[
           Text(
             title,
-            style: Theme.of(context).textTheme.subtitle,
+            style: Theme.of(context).textTheme.subtitle1,
           ),
           Container(
             margin: EdgeInsets.only(top: Dimens.margin_default),
             child: Text(
               subTitle,
-              style: Theme.of(context).textTheme.subhead,
+              style: Theme.of(context).textTheme.subtitle2,
             ),
           ),
           Container(
@@ -63,7 +55,7 @@ class CardGraph extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 Icon(
-                    Icons.access_time,
+                  Icons.access_time,
                   size: 15,
                   color: Colors.grey,
                 ),
@@ -72,11 +64,7 @@ class CardGraph extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 5.0),
                     child: Text(
                       bottomText,
-                      style: Theme.of(context).textTheme.subhead.merge(
-                        TextStyle(
-                          fontSize: 13
-                        )
-                      ),
+                      style: Theme.of(context).textTheme.subtitle2.merge(TextStyle(fontSize: 13)),
                     ),
                   ),
                 ),

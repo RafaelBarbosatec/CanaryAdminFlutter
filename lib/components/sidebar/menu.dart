@@ -1,43 +1,48 @@
-import 'package:canary_admin/Dimens.dart';
-import 'package:canary_admin/components/sidebar/ButtonMenu.dart';
-import 'package:canary_admin/components/sidebar/ItemMenu.dart';
+import 'package:canary_admin/components/sidebar/button_menu.dart';
+import 'package:canary_admin/components/sidebar/item_menu.dart';
+import 'package:canary_admin/shared/Dimens.dart';
 import 'package:flutter/material.dart';
 
-class MenuHome extends StatefulWidget {
-  final List<ItemMenu> itensMenus;
+class CAMenu extends StatefulWidget {
+  final List<CAItemMenu> list;
   final Function(int) positionSelected;
   final Color primaryColor;
   final Color textColor;
+  final double widthToSmall;
+  final String title;
 
-  const MenuHome(
-      {Key key,
-        this.itensMenus,
-        this.positionSelected,
-        this.primaryColor = Colors.red,
-        this.textColor = Colors.white})
-      : super(key: key);
+  const CAMenu({
+    Key key,
+    this.list,
+    this.positionSelected,
+    this.primaryColor = Colors.red,
+    this.textColor = Colors.white,
+    this.widthToSmall = 800,
+    this.title = 'Title',
+  }) : super(key: key);
 
   @override
-  _MenuHomeState createState() => _MenuHomeState();
+  _CAMenuState createState() => _CAMenuState();
 }
 
-class _MenuHomeState extends State<MenuHome> {
+class _CAMenuState extends State<CAMenu> {
   int positionSelected = 0;
   bool smallerMode = false;
 
   static const double WIDTH_NORMAL = 300;
   static const double WIDTH_SMALLER = 98;
-  static const double ELEVATION_SIDBAR = 4.0;
+  static const double ELEVATION_SIDEBAR = 4.0;
 
   @override
   Widget build(BuildContext context) {
-    smallerMode = MediaQuery.of(context).size.width < 700;
+    smallerMode = MediaQuery.of(context).size.width < widget.widthToSmall;
+
     return AnimatedContainer(
       duration: Duration(milliseconds: 300),
       padding: EdgeInsets.only(right: Dimens.margin_default),
       width: smallerMode ? WIDTH_SMALLER : WIDTH_NORMAL,
       child: Material(
-        elevation: ELEVATION_SIDBAR,
+        elevation: ELEVATION_SIDEBAR,
         shadowColor: Colors.black,
         child: Stack(
           children: <Widget>[
@@ -63,7 +68,7 @@ class _MenuHomeState extends State<MenuHome> {
                 children: <Widget>[
                   _buildHeader(),
                   _buildLine(),
-                  ..._createButtons()
+                  ..._createButtons(),
                 ],
               ),
             ),
@@ -75,11 +80,11 @@ class _MenuHomeState extends State<MenuHome> {
 
   List<Widget> _createButtons() {
     int index = -1;
-    return widget.itensMenus.map<Widget>((i) {
+    return widget.list.map<Widget>((i) {
       index++;
       return Padding(
         padding: EdgeInsets.only(top: 10.0),
-        child: ButtonMenu(
+        child: CAButtonMenu(
           index: index,
           text: i.text,
           icon: i.icon,
@@ -101,10 +106,9 @@ class _MenuHomeState extends State<MenuHome> {
     }).toList();
   }
 
-  _buildHeader() {
-
-    if(smallerMode){
-      return Container();
+  Widget _buildHeader() {
+    if (smallerMode) {
+      return SizedBox.shrink();
     }
 
     return Container(
@@ -113,9 +117,9 @@ class _MenuHomeState extends State<MenuHome> {
         child: Padding(
           padding: const EdgeInsets.only(left: 10.0),
           child: Text(
-            "CanaryAdmin",
+            widget.title,
             maxLines: 2,
-            style: Theme.of(context).textTheme.title,
+            style: Theme.of(context).textTheme.headline6,
           ),
         ),
       ),
@@ -126,9 +130,7 @@ class _MenuHomeState extends State<MenuHome> {
     return Container(
       margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
       height: 1,
-      color: smallerMode? Colors.transparent : Colors.grey.withAlpha(150),
+      color: smallerMode ? Colors.transparent : Colors.grey.withAlpha(150),
     );
   }
-
-  
 }

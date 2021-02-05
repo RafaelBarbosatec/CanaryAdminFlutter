@@ -1,11 +1,10 @@
-import 'package:canary_admin/Dimens.dart';
-import 'package:canary_admin/components/CardContent.dart';
-import 'package:canary_admin/components/cardContentTab/CardContentTab.dart';
-import 'package:canary_admin/components/CardContentTitle.dart';
-import 'package:canary_admin/components/CardGraph/CardGraph.dart';
-import 'package:canary_admin/components/CardInfoDashboard.dart';
-import 'package:canary_admin/components/ResponsibleRow.dart';
-import 'package:canary_admin/components/cardContentTab/ItemTab.dart';
+import 'package:canary_admin/components/card_content_tab/Item_tab.dart';
+import 'package:canary_admin/components/card_content_tab/card_content_tab.dart';
+import 'package:canary_admin/components/card_content_title.dart';
+import 'package:canary_admin/components/card_graph/card_graph.dart';
+import 'package:canary_admin/components/card_info.dart';
+import 'package:canary_admin/components/responsible_row.dart';
+import 'package:canary_admin/shared/Dimens.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatelessWidget {
@@ -20,17 +19,17 @@ class Dashboard extends StatelessWidget {
         children: <Widget>[
           _buildHeader(),
           _buildChart(context),
-          _buildContents(context)
+          _buildContents(context),
         ],
       ),
     );
   }
 
   _buildHeader() {
-    return ResponsibleRow(
+    return CAResponsibleRow(
       spaceBetween: Dimens.margin_default,
       children: <Widget>[
-        CardInfoDashboard(
+        CACardInfo(
           color: Colors.orange,
           icon: Icons.content_copy,
           title: "Used Space",
@@ -38,7 +37,7 @@ class Dashboard extends StatelessWidget {
           bottomInformation: "Get More Space...",
           iconBottomInformation: Icons.warning,
         ),
-        CardInfoDashboard(
+        CACardInfo(
           color: Colors.green,
           icon: Icons.home,
           title: "Revenue",
@@ -46,7 +45,7 @@ class Dashboard extends StatelessWidget {
           bottomInformation: "Last 24 Hours.",
           iconBottomInformation: Icons.today,
         ),
-        CardInfoDashboard(
+        CACardInfo(
           color: Colors.red,
           icon: Icons.home,
           title: "Fixed Issues",
@@ -54,7 +53,7 @@ class Dashboard extends StatelessWidget {
           bottomInformation: "Tracked from Github",
           iconBottomInformation: Icons.local_offer,
         ),
-        CardInfoDashboard(
+        CACardInfo(
           color: Colors.lightBlue,
           icon: Icons.people,
           title: "Followers",
@@ -69,22 +68,22 @@ class Dashboard extends StatelessWidget {
   _buildChart(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 40.0),
-      child: ResponsibleRow(
+      child: CAResponsibleRow(
         spaceBetween: Dimens.margin_default,
         children: <Widget>[
-          CardGraph(
+          CACardGraph(
             title: "Daily Sales",
             subTitle: "55% increase in today sales.",
             bottomText: "updated 4 minutes ago",
             color: Colors.green,
           ),
-          CardGraph(
+          CACardGraph(
             title: "Email Subscriptions",
             subTitle: "Last Campaign Performance",
             bottomText: "campaign sent 2 days ago",
             color: Colors.orange,
           ),
-          CardGraph(
+          CACardGraph(
             title: "Completed Tasks",
             subTitle: "Last Campaign Performance",
             bottomText: "campaign sent 2 days ago",
@@ -97,23 +96,25 @@ class Dashboard extends StatelessWidget {
 
   _buildContents(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top:Dimens.margin_default),
-      child: ResponsibleRow(
+      padding: const EdgeInsets.only(top: Dimens.margin_default),
+      child: CAResponsibleRow(
         spaceBetween: Dimens.margin_default,
         children: <Widget>[
-          CardContentTitle(
+          CACardContentTitle(
             title: "Employees Stats",
             subtitle: "New emplldksljdlksj ldskfjdslkfjds ",
-            content: Container( height: 150.0,),
+            content: Container(
+              height: 150.0,
+            ),
             color: Colors.orange,
           ),
-          CardContentTab(
-              [
-            ItemTab("BUGS", Icons.bug_report, Container( height: 150.0, child: Text("BUGS A LOT"))),
-            ItemTab("WEBSITE", Icons.chevron_left, Container( height: 150.0, child: Text("WEBSITES"))),
-            ItemTab("SERVER", Icons.cloud, Container(height: 150.0, child: Text("SERVERS")))
-          ],
-              title: "Tasks:",
+          CACardContentTab(
+            [
+              CAItemTab("BUGS", Icons.bug_report, Container(height: 150.0, child: Text("BUGS A LOT"))),
+              CAItemTab("WEBSITE", Icons.chevron_left, Container(height: 150.0, child: Text("WEBSITES"))),
+              CAItemTab("SERVER", Icons.cloud, Container(height: 150.0, child: Text("SERVERS")))
+            ],
+            title: "Tasks:",
             color: Colors.purple,
           )
         ],

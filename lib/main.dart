@@ -1,5 +1,5 @@
-import 'package:canary_admin/BaseHome.dart';
-import 'package:canary_admin/theme/AppTheme.dart';
+import 'package:canary_admin/home.dart';
+import 'package:canary_admin/shared/AppTheme.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Canary Admin',
       theme: appThemeMain,
-      home: BaseHome(),
+      home: Home(),
     );
   }
 }

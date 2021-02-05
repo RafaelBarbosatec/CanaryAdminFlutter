@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-class ItemMenu{
+class CAItemMenu {
   String text;
   IconData icon;
 
-  ItemMenu(this.text, this.icon);
-
+  CAItemMenu(this.text, this.icon);
 }

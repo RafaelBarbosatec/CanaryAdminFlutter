@@ -1,20 +1,18 @@
-import 'package:canary_admin/Dimens.dart';
+import 'package:canary_admin/shared/Dimens.dart';
 import 'package:flutter/material.dart';
 
-class CardContent extends StatefulWidget {
+class CACardContent extends StatefulWidget {
   final Color color;
   final Widget header;
   final Widget content;
 
-  const CardContent(
-      {Key key, this.color = Colors.white, this.header, this.content})
-      : super(key: key);
+  const CACardContent({Key key, this.color = Colors.white, this.header, this.content}) : super(key: key);
 
   @override
-  _CardContentState createState() => _CardContentState();
+  _CACardContentState createState() => _CACardContentState();
 }
 
-class _CardContentState extends State<CardContent> {
+class _CACardContentState extends State<CACardContent> {
   GlobalKey _keyHeader = GlobalKey();
 
   double paddingTop = 0.0;
@@ -33,8 +31,7 @@ class _CardContentState extends State<CardContent> {
         Container(
           margin: EdgeInsets.only(top: Dimens.margin_default),
           child: Material(
-            borderRadius:
-                BorderRadius.all(Radius.circular(Dimens.radius_default)),
+            borderRadius: BorderRadius.all(Radius.circular(Dimens.radius_default)),
             elevation: 0.5,
             child: Container(
               padding: EdgeInsets.only(
@@ -52,8 +49,7 @@ class _CardContentState extends State<CardContent> {
           margin: const EdgeInsets.only(left: 15.0, right: 15),
           child: Material(
             elevation: 4,
-            borderRadius:
-                BorderRadius.all(Radius.circular(Dimens.radius_default)),
+            borderRadius: BorderRadius.all(Radius.circular(Dimens.radius_default)),
             color: widget.color,
             shadowColor: widget.color,
             child: Container(

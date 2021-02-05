@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ItemTab{
+class CAItemTab {
   String text;
   IconData icon;
   Widget content;
 
-  ItemTab(this.text, this.icon, this.content);
-
+  CAItemTab(this.text, this.icon, this.content);
 }
