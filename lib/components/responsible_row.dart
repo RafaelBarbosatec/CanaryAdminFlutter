@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class CAResponsibleRow extends StatefulWidget {
   final List<Widget> children;
-  final int maxCount;
+  final int? maxCount;
   final double spaceBetween;
   final double widthToExpanded;
   const CAResponsibleRow({
-    Key key,
-    this.children,
+    Key? key,
+    required this.children,
     this.maxCount,
     this.spaceBetween = 0.0,
     this.widthToExpanded = 500.0,
@@ -17,9 +17,10 @@ class CAResponsibleRow extends StatefulWidget {
   _CAResponsibleRowState createState() => _CAResponsibleRowState();
 }
 
-class _CAResponsibleRowState extends State<CAResponsibleRow> with TickerProviderStateMixin {
+class _CAResponsibleRowState extends State<CAResponsibleRow>
+    with TickerProviderStateMixin {
   double widthPerWidget = 0.0;
-  List<Widget> rows = List();
+  List<Widget> rows = [];
   double initialWidth = 0.0;
   bool expandedMode = true;
   int countWidgets = 0;
@@ -34,10 +35,12 @@ class _CAResponsibleRowState extends State<CAResponsibleRow> with TickerProvider
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        var currentWidth = constraints.maxWidth - ((countWidgets) * widget.spaceBetween);
+        var currentWidth =
+            constraints.maxWidth - (countWidgets * widget.spaceBetween);
 
         if (widthPerWidget == 0.0 || (currentWidth > initialWidth)) {
-          initialWidth = constraints.maxWidth - ((countWidgets) * widget.spaceBetween);
+          initialWidth =
+              constraints.maxWidth - (countWidgets * widget.spaceBetween);
 
           if (constraints.maxWidth <= widget.widthToExpanded) {
             widthPerWidget = double.maxFinite;
@@ -48,7 +51,7 @@ class _CAResponsibleRowState extends State<CAResponsibleRow> with TickerProvider
             if (widget.maxCount == null) {
               widthPerWidget = initialWidth / countWidgets;
             } else {
-              widthPerWidget = initialWidth / widget.maxCount;
+              widthPerWidget = initialWidth / widget.maxCount!;
             }
             _initWidgets();
           }
@@ -64,7 +67,7 @@ class _CAResponsibleRowState extends State<CAResponsibleRow> with TickerProvider
           if (widget.maxCount == null) {
             widthPerWidget = initialWidth / countWidgets;
           } else {
-            widthPerWidget = initialWidth / widget.maxCount;
+            widthPerWidget = initialWidth / widget.maxCount!;
           }
 
           if (expandedMode) {
@@ -83,7 +86,7 @@ class _CAResponsibleRowState extends State<CAResponsibleRow> with TickerProvider
   }
 
   void _initWidgets() {
-    List<Widget> widgets = List();
+    List<Widget> widgets = [];
     widget.children.forEach((widget) {
       widgets.add(SizedBox(width: widthPerWidget, child: widget));
     });

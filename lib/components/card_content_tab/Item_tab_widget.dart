@@ -6,9 +6,15 @@ class CAItemTabWidget extends StatelessWidget {
   final int id;
   final CAItemTab item;
   final bool isSelected;
-  final Function(int) onTab;
+  final ValueChanged<int>? onTab;
 
-  const CAItemTabWidget({Key key, this.item, this.id, this.onTab, this.isSelected = false}) : super(key: key);
+  const CAItemTabWidget(
+      {Key? key,
+      required this.item,
+      required this.id,
+      this.onTab,
+      this.isSelected = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +24,7 @@ class CAItemTabWidget extends StatelessWidget {
         color: isSelected ? Colors.white.withAlpha(50) : Colors.transparent,
         child: InkWell(
           onTap: () {
-            if (onTab != null) {
-              onTab(id);
-            }
+            onTab?.call(id);
           },
           focusColor: Colors.grey,
           child: Padding(
@@ -28,14 +32,18 @@ class CAItemTabWidget extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                Icon(
-                  item.icon == null ? "" : item.icon,
-                  color: Colors.white,
-                ),
+                if (item.icon != null)
+                  Icon(
+                    item.icon,
+                    color: Colors.white,
+                  ),
                 Container(
                   child: Text(
                     item.text,
-                    style: Theme.of(context).textTheme.subtitle1.merge(TextStyle(color: Colors.white)),
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle1
+                        ?.merge(TextStyle(color: Colors.white)),
                   ),
                   margin: EdgeInsets.only(left: 8, right: 8),
                 )

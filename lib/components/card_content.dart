@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 
 class CACardContent extends StatefulWidget {
   final Color color;
-  final Widget header;
-  final Widget content;
+  final Widget? header;
+  final Widget? content;
 
-  const CACardContent({Key key, this.color = Colors.white, this.header, this.content}) : super(key: key);
+  const CACardContent(
+      {Key? key, this.color = Colors.white, this.header, this.content})
+      : super(key: key);
 
   @override
   _CACardContentState createState() => _CACardContentState();
@@ -19,7 +21,7 @@ class _CACardContentState extends State<CACardContent> {
 
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback(_afterLayout);
+    WidgetsBinding.instance?.addPostFrameCallback(_afterLayout);
     super.initState();
   }
 
@@ -31,7 +33,8 @@ class _CACardContentState extends State<CACardContent> {
         Container(
           margin: EdgeInsets.only(top: Dimens.margin_default),
           child: Material(
-            borderRadius: BorderRadius.all(Radius.circular(Dimens.radius_default)),
+            borderRadius:
+                BorderRadius.all(Radius.circular(Dimens.radius_default)),
             elevation: 0.5,
             child: Container(
               padding: EdgeInsets.only(
@@ -49,7 +52,8 @@ class _CACardContentState extends State<CACardContent> {
           margin: const EdgeInsets.only(left: 15.0, right: 15),
           child: Material(
             elevation: 4,
-            borderRadius: BorderRadius.all(Radius.circular(Dimens.radius_default)),
+            borderRadius:
+                BorderRadius.all(Radius.circular(Dimens.radius_default)),
             color: widget.color,
             shadowColor: widget.color,
             child: Container(
@@ -64,10 +68,13 @@ class _CACardContentState extends State<CACardContent> {
   }
 
   void _afterLayout(Duration timeStamp) {
-    final RenderBox renderBoxRed = _keyHeader.currentContext.findRenderObject();
-    final sizeRed = renderBoxRed.size;
-    setState(() {
-      paddingTop = sizeRed.height;
-    });
+    final RenderBox? renderBoxRed =
+        _keyHeader.currentContext?.findRenderObject() as RenderBox;
+    final sizeRed = renderBoxRed?.size;
+    if (sizeRed != null) {
+      setState(() {
+        paddingTop = sizeRed.height;
+      });
+    }
   }
 }

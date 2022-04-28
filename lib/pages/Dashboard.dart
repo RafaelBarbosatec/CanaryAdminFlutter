@@ -110,9 +110,30 @@ class Dashboard extends StatelessWidget {
           ),
           CACardContentTab(
             [
-              CAItemTab("BUGS", Icons.bug_report, Container(height: 150.0, child: Text("BUGS A LOT"))),
-              CAItemTab("WEBSITE", Icons.chevron_left, Container(height: 150.0, child: Text("WEBSITES"))),
-              CAItemTab("SERVER", Icons.cloud, Container(height: 150.0, child: Text("SERVERS")))
+              CAItemTab(
+                text: "BUGS",
+                icon: Icons.bug_report,
+                content: Container(
+                  height: 150.0,
+                  child: Text("BUGS A LOT"),
+                ),
+              ),
+              CAItemTab(
+                text: "WEBSITE",
+                icon: Icons.chevron_left,
+                content: Container(
+                  height: 150.0,
+                  child: Text("WEBSITES"),
+                ),
+              ),
+              CAItemTab(
+                text: "SERVER",
+                icon: Icons.cloud,
+                content: Container(
+                  height: 150.0,
+                  child: Text("SERVERS"),
+                ),
+              )
             ],
             title: "Tasks:",
             color: Colors.purple,

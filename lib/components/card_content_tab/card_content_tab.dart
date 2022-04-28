@@ -8,23 +8,22 @@ class CACardContentTab extends StatefulWidget {
   static const HEIGHT_TAB_BAR = 50.0;
   final String title;
   final List<CAItemTab> tabs;
-  final Color color;
+  final Color? color;
   final double heightTabBar;
 
-  CACardContentTab(this.tabs, {Key key, this.title, this.color, this.heightTabBar = HEIGHT_TAB_BAR}) : super(key: key);
+  CACardContentTab(this.tabs,
+      {Key? key,
+      required this.title,
+      this.color,
+      this.heightTabBar = HEIGHT_TAB_BAR})
+      : super(key: key);
 
   @override
   _CACardContentTabState createState() => _CACardContentTabState();
 }
 
 class _CACardContentTabState extends State<CACardContentTab> {
-  int _indexSelected;
-
-  @override
-  void initState() {
-    super.initState();
-    _indexSelected = 0;
-  }
+  int _indexSelected = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +48,10 @@ class _CACardContentTabState extends State<CACardContentTab> {
               child: Center(
                   child: Text(
                 widget.title,
-                style: Theme.of(context).textTheme.subtitle1.merge(TextStyle(color: Colors.white)),
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle1
+                    ?.merge(TextStyle(color: Colors.white)),
               ))),
           ..._buildTabList(),
         ],

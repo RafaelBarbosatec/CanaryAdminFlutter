@@ -44,23 +44,33 @@ class _TipographyState extends State<Tipography> {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        _buildExample("Headline2", "The Life of Material Dashboard", Theme.of(context).textTheme.headline2),
-        _buildExample("Headline3", "The Life of Material Dashboard", Theme.of(context).textTheme.headline3),
-        _buildExample("Headline4", "The Life of Material Dashboard", Theme.of(context).textTheme.headline4),
-        _buildExample("Headline5", "The Life of Material Dashboard", Theme.of(context).textTheme.headline5),
-        _buildExample("Headline6", "The Life of Material Dashboard", Theme.of(context).textTheme.headline6),
-        _buildExample("Subtitle1", "The Life of Material Dashboard", Theme.of(context).textTheme.subtitle1),
-        _buildExample("Subtitle2", "The Life of Material Dashboard", Theme.of(context).textTheme.subtitle2),
-        _buildExample("BodyText2", "The Life of Material Dashboard", Theme.of(context).textTheme.bodyText2),
-        _buildExample("BodyText1", "The Life of Material Dashboard", Theme.of(context).textTheme.bodyText1),
-        _buildExample("Overline", "The Life of Material Dashboard", Theme.of(context).textTheme.overline),
+        _buildExample("Headline2", "The Life of Material Dashboard",
+            Theme.of(context).textTheme.headline2),
+        _buildExample("Headline3", "The Life of Material Dashboard",
+            Theme.of(context).textTheme.headline3),
+        _buildExample("Headline4", "The Life of Material Dashboard",
+            Theme.of(context).textTheme.headline4),
+        _buildExample("Headline5", "The Life of Material Dashboard",
+            Theme.of(context).textTheme.headline5),
+        _buildExample("Headline6", "The Life of Material Dashboard",
+            Theme.of(context).textTheme.headline6),
+        _buildExample("Subtitle1", "The Life of Material Dashboard",
+            Theme.of(context).textTheme.subtitle1),
+        _buildExample("Subtitle2", "The Life of Material Dashboard",
+            Theme.of(context).textTheme.subtitle2),
+        _buildExample("BodyText2", "The Life of Material Dashboard",
+            Theme.of(context).textTheme.bodyText2),
+        _buildExample("BodyText1", "The Life of Material Dashboard",
+            Theme.of(context).textTheme.bodyText1),
+        _buildExample("Overline", "The Life of Material Dashboard",
+            Theme.of(context).textTheme.overline),
 
         // _buildExample("Display4","The Life of Material Dashboard",Theme.of(context).textTheme.display4),
       ],
     );
   }
 
-  Widget _buildExample(String s, String t, TextStyle theme) {
+  Widget _buildExample(String s, String t, TextStyle? theme) {
     return Padding(
       padding: const EdgeInsets.only(bottom: Dimens.margin_default),
       child: Row(

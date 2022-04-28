@@ -9,11 +9,11 @@ class CAButtonMenu extends StatelessWidget {
   final Color textColor;
   final Color primaryColor;
   final FontWeight fontWeight;
-  final Function(int) onPressed;
+  final ValueChanged<int>? onPressed;
   final bool smallerMode;
 
   const CAButtonMenu(
-      {Key key,
+      {Key? key,
       this.selected = false,
       this.textColor = Colors.white,
       this.primaryColor = Colors.blue,
@@ -21,7 +21,7 @@ class CAButtonMenu extends StatelessWidget {
       this.text = "Text menu",
       this.icon = Icons.dashboard,
       this.onPressed,
-      this.index,
+      required this.index,
       this.smallerMode = false})
       : super(key: key);
 
@@ -38,14 +38,17 @@ class CAButtonMenu extends StatelessWidget {
         hoverColor: selected ? primaryColor : Theme.of(context).hoverColor,
         color: selected ? primaryColor : Colors.transparent,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(Dimens.radius_default)),
+          borderRadius:
+              BorderRadius.all(Radius.circular(Dimens.radius_default)),
         ),
         child: Row(
           children: <Widget>[
             if (smallerMode) Spacer(),
             Icon(
               icon,
-              color: selected ? textColor : Theme.of(context).unselectedWidgetColor,
+              color: selected
+                  ? textColor
+                  : Theme.of(context).unselectedWidgetColor,
             ),
             if (smallerMode) Spacer(),
             if (!smallerMode) Expanded(child: _buildName(context))
@@ -53,7 +56,7 @@ class CAButtonMenu extends StatelessWidget {
         ),
         onPressed: () {
           if (onPressed != null && !selected) {
-            onPressed(index);
+            onPressed?.call(index);
           }
         },
       ),
@@ -67,9 +70,11 @@ class CAButtonMenu extends StatelessWidget {
         child: Text(
           text,
           maxLines: 1,
-          style: Theme.of(context).textTheme.bodyText2.merge(
+          style: Theme.of(context).textTheme.bodyText2?.merge(
                 TextStyle(
-                  color: selected ? textColor : Theme.of(context).unselectedWidgetColor,
+                  color: selected
+                      ? textColor
+                      : Theme.of(context).unselectedWidgetColor,
                   fontFamily: selected ? 'normal' : 'Light',
                 ),
               ),

@@ -1,9 +1,10 @@
-import 'package:canary_admin/components/canary_admin.dart';
 import 'package:canary_admin/components/sidebar/item_menu.dart';
 import 'package:canary_admin/pages/Dashboard.dart';
 import 'package:canary_admin/pages/Tipography.dart';
 import 'package:canary_admin/pages/UserProfile.dart';
 import 'package:flutter/material.dart';
+
+import 'components/canary_admin/canary_admin.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -35,10 +36,8 @@ class Home extends StatelessWidget {
     switch (position) {
       case 0:
         return Dashboard();
-        break;
       case 3:
         return Tipography();
-        break;
       default:
         return UserProfile();
     }

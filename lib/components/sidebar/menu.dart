@@ -5,15 +5,15 @@ import 'package:flutter/material.dart';
 
 class CAMenu extends StatefulWidget {
   final List<CAItemMenu> list;
-  final Function(int) positionSelected;
+  final ValueChanged<int>? positionSelected;
   final Color primaryColor;
   final Color textColor;
   final double widthToSmall;
   final String title;
 
   const CAMenu({
-    Key key,
-    this.list,
+    Key? key,
+    this.list = const [],
     this.positionSelected,
     this.primaryColor = Colors.red,
     this.textColor = Colors.white,
@@ -94,9 +94,7 @@ class _CAMenuState extends State<CAMenu> {
           selected: positionSelected == index,
           onPressed: (index) {
             setState(() {
-              if (widget.positionSelected != null) {
-                widget.positionSelected(index);
-              }
+              widget.positionSelected?.call(index);
               positionSelected = index;
               smallerMode = !smallerMode;
             });
